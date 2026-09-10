@@ -29,15 +29,6 @@ Aqui estão algumas das tecnologias que utilizo no meu dia a dia e nos estudos:
 
 ---
 
-### 📈 Minhas Estatísticas
-
-<p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=CarlosHenriqueLima9&show_icons=true&theme=radical&locale=pt-br" alt="Estatísticas do Carlos" height="150" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CarlosHenriqueLima9&layout=compact&theme=radical&locale=pt-br" alt="Linguagens mais usadas" height="150" />
-</p>
-
----
-
 ### 📫 Como me encontrar
 
 - 💼 **LinkedIn:** [Conecte-se comigo](https://www.linkedin.com/in/carlos-henrique-lima-6705582b2/)
