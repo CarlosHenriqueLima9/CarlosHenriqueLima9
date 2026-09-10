@@ -33,4 +33,4 @@ Aqui estão algumas das tecnologias que utilizo no meu dia a dia e nos estudos:
 
 - 💼 **LinkedIn:** [Conecte-se comigo](https://www.linkedin.com/in/carlos-henrique-lima-6705582b2/)
 - 📧 **E-mail:** limahenrique.carlos@yahoo.com.br
-- 🌐 **Portfólio:** [Veja meus projetos em destaque](https://carloshenriquelima9.github.io/)
+- 🌐 **Portfólio:** [Veja meus projetos em destaque](https://carloshenriquelima9.github.io/CarlosHenriqueLima9/)
