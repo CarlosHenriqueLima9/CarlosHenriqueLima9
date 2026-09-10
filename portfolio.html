@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Henrique Lima | Cientista de Dados</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- LinkedIn Badge Script -->
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
+    <style>
+        /* Variáveis de Tema (Light Mode) */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --text-heading: #0f172a;
+            --accent: #0ea5e9; /* Azul sutil/Ciano */
+            --accent-hover: #0284c7;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-heading);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-heading);
+        }
+        
+        .nav-brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Layout Global das Seções */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            padding-top: 8rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border-color: var(--text-heading);
+            color: var(--text-heading);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-heading);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-badge {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Sobre Mim */
+        #sobre {
+            background-color: var(--bg-secondary);
+            border-radius: 24px;
+            margin-top: -2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Projetos */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(14, 165, 233, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-badge {
+            background: var(--bg-secondary);
+            color: var(--accent);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .project-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Experiência (Timeline) */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.45rem;
+            top: 0.25rem;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border: 4px solid var(--bg-primary);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--text-heading);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+        }
+
+        .contact-link svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 3rem;
+        }
+
+        /* Animações (Scroll) */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            #hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 6rem;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .nav-links {
+                display: none; /* Simplificação para mobile na view principal */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-brand">Carlos<span>.</span>Data</div>
+        <div class="nav-links">
+            <a href="#sobre">Sobre Mim</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="animate-on-scroll">
+            <div class="hero-text">
+                <h1>Carlos Henrique Lima</h1>
+                <h2>Cientista de Dados em formação | Analytics | Qualidade</h2>
+                <p>Estudante de Ciência de Dados com experiência consolidada em análise de indicadores, diagnóstico operacional e métricas. Focado em soluções baseadas em dados para melhoria contínua.</p>
+                
+                <div class="btn-group">
+                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                    <a href="https://github.com/CarlosHenriqueLima9" target="_blank" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-badge">
+                <!-- Badge LinkedIn EXATAMENTE como solicitado -->
+                <div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="carlos-henrique-lima-6705582b2" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/carlos-henrique-lima-6705582b2?trk=profile-badge">Carlos Henrique Lima</a></div>
+            </div>
+        </section>
+
+        <!-- Sobre Mim Section -->
+        <section id="sobre" class="animate-on-scroll">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-grid">
+                <div>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Com 5 anos de experiência no monitoramento de qualidade e avaliação de atendimentos, desenvolvi um forte perfil analítico e orientado a métricas. Minha atuação foca no diagnóstico de causa raiz, elaboração de relatórios estruturados e na implementação de ações de melhoria com impacto direto nos resultados operacionais.</p>
+                    <p style="font-size: 1.1rem;">Atualmente cursando o nível superior em Ciência de Dados, procuro integrar meus conhecimentos estatísticos e de processos às tecnologias de manipulação e visualização de dados para extrair insights valiosos e apoiar a tomada de decisões corporativas.</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1rem;">Principais Competências</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Data Science</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Analytics</span>
+                        <span class="skill-tag">Análise de Indicadores</span>
+                        <span class="skill-tag">Melhoria de Processos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos Section -->
+        <section id="projetos" class="animate-on-scroll">
+            <h2 class="section-title">Projetos Recentes</h2>
+            <div class="project-grid">
+                
+                <!-- Card Projeto 1 -->
+                <article class="project-card">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.56c-.59-.72-1.39-1.25-2.27-1.47-.4-.1-.78-.26-1.13-.5V14c0-1.1-.9-2-2-2H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.37z"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Mini Guia de Educação Financeira</h3>
+                    <p class="project-desc">Projeto focado na estruturação de dados e lógica voltados ao planejamento e controle financeiro. Ajuda na compreensão de gastos e práticas econômicas utilizando análise lógica de variáveis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Análise de Dados</span>
+                        <span class="tech-badge">Lógica Estrutural</span>
+                    </div>
+                    <a href="https://github.com/CarlosHenriqueLima9/miniguia-educacao-financeira" target="_blank" class="project-link">
+                        Acessar Repositório
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </a>
+                </article>
+
+                <!-- Card Projeto 2 -->
+                <article class="project-card">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Jogo do Número Secreto</h3>
+                    <p class="project-desc">Aplicação interativa voltada ao desenvolvimento do raciocínio lógico computacional. O sistema interage através de inputs, fornecendo feedbacks baseados na proximidade do número aleatório gerado.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">Lógica de Programação</span>
+                    </div>
+                    <a href="https://github.com/CarlosHenriqueLima9/jogo-do-numero-secreto" target="_blank" class="project-link">
+                        Acessar Repositório
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Experiência Section -->
+        <section id="experiencia" class="animate-on-scroll">
+            <h2 class="section-title">Experiência e Formação</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <span class="timeline-date">Fev/2025 - Jul/2027</span>
+                    <h3 class="timeline-title">Tecnólogo em Ciência de Dados</h3>
+                    <h4 class="timeline-company">GRAN Faculdade</h4>
+                    <p class="timeline-desc">Formação acadêmica em andamento, focada em estatística, extração, modelagem e visualização de dados, utilizando as principais tecnologias do mercado de Analytics e Ciência de Dados.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">Mar/2020 - Fev/2025</span>
+                    <h3 class="timeline-title">Monitor de Qualidade II</h3>
+                    <h4 class="timeline-company">Teleperformance CRM S.A.</h4>
+                    <p class="timeline-desc">Atuação orientada por dados, responsável pela avaliação e monitoramento de performance com base em métricas. Elaboração de relatórios, diagnósticos operacionais, aplicação de feedbacks e implementação de planos de ação que elevaram a qualidade geral dos atendimentos de 71% para 87%.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">Anterior</span>
+                    <h3 class="timeline-title">Aspirante Oficial da Reserva</h3>
+                    <h4 class="timeline-company">CPOR/RJ</h4>
+                    <p class="timeline-desc">Formação em liderança, desenvolvimento pessoal e gestão de equipes em ambiente de alta exigência.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contato">
+        <div class="footer-content">
+            <h2 class="footer-title">Vamos nos conectar?</h2>
+            <p style="color: var(--text-muted);">Aberto a oportunidades em Ciência de Dados e Analytics. Sinta-se à vontade para entrar em contato.</p>
+            
+            <div class="footer-contact">
+                <a href="mailto:limahenrique.carlos@yahoo.com.br" class="contact-link">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    E-mail
+                </a>
+                <a href="https://www.linkedin.com/in/carlos-henrique-lima-6705582b2/" target="_blank" class="contact-link">
+                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-1.85 0-2.58.97-3 1.63v-1.4h-3.4v8.33h3.4v-4.63c0-1.23.23-2.43 1.77-2.43 1.51 0 1.53 1.42 1.53 2.5v4.57h3.36M6.46 7.42c1.08 0 1.96-.88 1.96-1.96 0-1.08-.88-1.96-1.96-1.96-1.08 0-1.96.88-1.96 1.96 0 1.08.88 1.96 1.96 1.96M4.77 18.5h3.38V10.17H4.77v8.33z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/CarlosHenriqueLima9" target="_blank" class="contact-link">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+            
+            <p class="copyright">&copy; 2026 Carlos Henrique Lima. Construindo soluções através de dados e melhoria contínua.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Interação (Inline) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Animação de elementos ao rolar a página (Intersection Observer)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach((elem) => {
+                observer.observe(elem);
+            });
+        });
+    </script>
+</body>
+</html>
