@@ -209,6 +209,30 @@
             justify-content: center;
         }
 
+        /* Estilo para o Card/Botão do LinkedIn baseado na imagem */
+        .linkedin-card-link {
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 300px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+        }
+
+        .linkedin-card-link:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent);
+        }
+
+        .linkedin-card-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* Sobre Mim */
         #sobre {
             background-color: var(--bg-secondary);
@@ -488,9 +512,12 @@
                     </a>
                 </div>
             </div>
+            
             <div class="hero-badge">
-                <!-- Badge LinkedIn EXATAMENTE como solicitado -->
-                <div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="carlos-henrique-lima-6705582b2" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/carlos-henrique-lima-6705582b2?trk=profile-badge">Carlos Henrique Lima</a></div>
+                <!-- Imagem do LinkedIn com link atualizado para a pasta assets -->
+                <a href="https://br.linkedin.com/in/carlos-henrique-lima-6705582b2" target="_blank" class="linkedin-card-link">
+                    <img src="assets/linkedin-card-github.png" alt="Perfil LinkedIn de Carlos Henrique Lima" class="linkedin-card-img">
+                </a>
             </div>
         </section>
 
